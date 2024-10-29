@@ -13,20 +13,21 @@ public class CrashDetector : MonoBehaviour
     bool hasCrashed = false;
 
     [SerializeField] AudioClip crashSFX;
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag =="Ground" && !hasCrashed)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Ground" && !hasCrashed)
         {
             hasCrashed = true;
             FindObjectOfType<PlayerController>().DisableControls();
             Debug.Log("Ouch!");
             crashEffect.Play();
             GetComponent<AudioSource>().PlayOneShot(crashSFX);
-            Invoke("ReloadScene",delayTime);
+            Invoke("ReloadScene", delayTime);
         }
     }
 
     void ReloadScene()
     {
-       SceneManager.LoadScene(0);  
+        SceneManager.LoadScene("LoseSence");
     }
 }
