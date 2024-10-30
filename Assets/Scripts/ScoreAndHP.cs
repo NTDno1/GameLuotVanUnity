@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreAndHP : MonoBehaviour
@@ -20,7 +21,6 @@ public class ScoreAndHP : MonoBehaviour
     {
         score.text = "Score: " + intScore.ToString();
         hpChar.text = "Hp: " + intHpChar.ToString();
-
     }
 
     public void AddScore()
@@ -36,6 +36,10 @@ public class ScoreAndHP : MonoBehaviour
     public void MisusHP()
     {
         intHpChar -= 1;
+        if (intHpChar == 0)
+        {
+            SceneManager.LoadScene("LoseSence");
+        }
         hpChar.text = "HP: " + intHpChar.ToString();
     }
 }

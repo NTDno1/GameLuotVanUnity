@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     SurfaceEffector2D surfaceEffector2D;
     bool canMove = true;
     private bool canCollide = true;
-    private float collisionCooldown = 1f;
+    private float collisionCooldown = 0.3f;
 
     // Start is called before the first frame update
     void Start()
